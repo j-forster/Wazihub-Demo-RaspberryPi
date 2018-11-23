@@ -1,0 +1,28 @@
+{
+  "id": "",
+  "name": "Raspberry Pi Test",
+  "domain": "MyDomain",
+  "sensors": [
+    {
+      "id": "psuh-button",
+      "name": "Push Button",
+      "sensing_device": "PushButton",
+      "unit": ""
+    }
+  ],
+  "actuators": [
+    {
+      "id": "led1",
+      "name": "LED 1.",
+      "actuation_device": "Lamp",
+      "control_type": "bool",
+      "value": false
+    }, {
+      "id": "led1",
+      "name": "LED 2.",
+      "actuation_device": "Lamp",
+      "control_type": "bool",
+      "value": false
+    }
+  ]
+}
