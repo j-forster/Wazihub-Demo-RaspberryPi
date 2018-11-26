@@ -4,7 +4,7 @@
   "domain": "MyDomain",
   "sensors": [
     {
-      "id": "psuh-button",
+      "id": "push-button",
       "name": "Push Button",
       "sensing_device": "PushButton",
       "unit": ""
