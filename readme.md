@@ -20,6 +20,11 @@ $ go get github.com/julienschmidt/httprouter
 $ go get github.com/globalsign/mgo
 $ go get github.com/gorilla/websocket
 
+$ go get periph.io/x/periph/conn/gpio
+$ go get periph.io/x/periph/conn/gpio/gpioreg
+$ go get periph.io/x/periph/host
+$ go get periph.io/x/periph/host/rpi
+
 $ go get github.com/j-forster/Wazihub-API
 $ go get github.com/j-forster/Wazihub-API-Server
 $ go get github.com/j-forster/Wazihub-Demo-RaspberryPi
