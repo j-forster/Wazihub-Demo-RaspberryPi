@@ -44,7 +44,7 @@ func main() {
 	//////////
 
 	// Login to Wazihub
-	if err := wazihub.Login("cdupont", "password"); err != nil {
+	if err = wazihub.Login("cdupont", "password"); err != nil {
 		log.Fatalln("Login failed!", err)
 	}
 
@@ -90,7 +90,7 @@ func main() {
 func ButtonListener() {
 
 	gpio24 := gpioreg.ByName("24")
-	// Connect at push-button to GPIO 24
+	// Connect a push-button to GPIO 24
 	gpio24.In(gpio.PullUp, gpio.BothEdges)
 
 	for {
