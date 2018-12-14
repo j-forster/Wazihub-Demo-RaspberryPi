@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"time"
 
@@ -15,8 +13,6 @@ import (
 	"github.com/j-forster/Wazihub-API"
 )
 
-var deviceId = wazihub.CurrentDeviceId()
-
 func main() {
 	host.Init()
 
@@ -24,34 +20,21 @@ func main() {
 
 	//////////
 
-	// See 'device.json'.
-	file, err := ioutil.ReadFile("device.json")
-	if err != nil {
-		log.Fatal(err)
-	}
 	// The ID of the device this program is running on.
 	// We use 'CurrentDeviceId' to create a unique Id for this device.
-	log.Println("This device id is:", deviceId)
-
-	// Create a new Device ...
-	device := &wazihub.Device{Id: deviceId}
-	// ... with the data from 'device.json'
-	err = json.Unmarshal(file, device)
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Println("This device id is:", device.Id)
 
 	//////////
 
 	// Login to Wazihub
-	if err = wazihub.Login("cdupont", "password"); err != nil {
+	if err := wazihub.Login("cdupont", "password"); err != nil {
 		log.Fatalln("Login failed!", err)
 	}
 
 	//////////
 
 	// We register the device, even though it might already be registered ...
-	err = wazihub.CreateDevice(device)
+	err := wazihub.CreateDevice(device)
 	if err != nil {
 		log.Fatalln("Failed to register!", err)
 	}
@@ -67,8 +50,8 @@ func main() {
 	gpio23 := gpioreg.ByName("23")
 
 	// Let's hook into the actuation.
-	led1, _ := wazihub.Actuation(deviceId, "led1")
-	led2, _ := wazihub.Actuation(deviceId, "led2")
+	led1, _ := wazihub.Actuation(device.Id, "led1")
+	led2, _ := wazihub.Actuation(device.Id, "led2")
 
 	fmt.Println("Waiting for actuation...")
 
@@ -87,6 +70,7 @@ func main() {
 
 //////////
 
+// ButtonListener is a goroutine that waits for the switch button to change.
 func ButtonListener() {
 
 	gpio24 := gpioreg.ByName("24")
@@ -95,7 +79,7 @@ func ButtonListener() {
 
 	for {
 		if gpio24.WaitForEdge(time.Second * 30) {
-			wazihub.PostValue(deviceId, "push-button", gpio24.Read())
+			wazihub.PostValue(device.Id, "push-button", gpio24.Read())
 		}
 	}
 }
