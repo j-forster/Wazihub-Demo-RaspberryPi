@@ -8,26 +8,29 @@ var device = &wazihub.Device{
 	Domain: "MyDomain",
 	Sensors: []*wazihub.Sensor{
 		&wazihub.Sensor{
-			Id:            "push-button",
-			Name:          "Push Button",
-			SensingDevice: "PushButton",
+			Id:            "Digital Soil Moisture",
+			Name:          "SMC",
+			SensingDevice: "",
 			Unit:          "",
+		},
+		&wazihub.Sensor{
+			Id:            "bat",
+			Name:          "BAT",
+			SensingDevice: "",
+			Unit:          "",
+		},
+		&wazihub.Sensor{
+			Id:            "t",
+			Name:          "T",
+			SensingDevice: "",
+			Unit:          "°C",
 		},
 	},
 	Actuators: []*wazihub.Actuator{
 		&wazihub.Actuator{
-			Id:              "led1",
-			Name:            "LED 1.",
-			ActuationDevice: "lamp",
-			ControlType:     "bool",
-			Value:           false,
-		},
-		&wazihub.Actuator{
-			Id:              "led2",
-			Name:            "LED 2.",
-			ActuationDevice: "lamp",
-			ControlType:     "bool",
-			Value:           false,
+			Id:              "tthreshold",
+			Name:            "Alarm Temp. Threshold",
+			ActuationDevice: "",
 		},
 	},
 }
