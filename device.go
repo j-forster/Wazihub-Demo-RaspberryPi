@@ -32,5 +32,15 @@ var device = &wazihub.Device{
 			Name:            "Alarm Temp. Threshold",
 			ActuationDevice: "",
 		},
+		&wazihub.Actuator{
+			Id:              "led1",
+			Name:            "Status LED 1",
+			ActuationDevice: "",
+		},
+		&wazihub.Actuator{
+			Id:              "led2",
+			Name:            "Status LED 2",
+			ActuationDevice: "",
+		},
 	},
 }
