@@ -49,3 +49,41 @@ On `fetch("devices/b8:27:eb:3b:a6:9e/actuators/led2/value", {method: "POST", bod
 Off `fetch("devices/b8:27:eb:3b:a6:9e/actuators/led2/value", {method: "POST", body: "0"})`
 Or use any MQTT client, like [HiveMQ](http://www.hivemq.com/demos/websocket-client/):
 Connect to the Raspberry Pi and Publish to `devices/b8:27:eb:3b:a6:9e/actuators/led2/value` values "0" and "1".
+
+# Test it!
+
+Run the go project with two simple commands:
+
+```bash
+$ go install github.com/j-forster/Wazihub-Demo-RaspberryPi
+$ sudo ./go/bin/Wazihub-Demo-RaspberryPi
+```
+
+We need _sudo_ for LoRa communication (if needed).
+Also have a look at the GPS implementation at [github.com/j-forster/MEKOB-P](https://github.com/j-forster/MEKOB-P).
+
+![Raspberry Pi Sketch with LEDs and GPS](assets/sketch2.png)
+
+## GPS
+
+See [github.com/j-forster/MEKOB-P](https://github.com/j-forster/MEKOB-P).
+
+## LoRa
+
+Usage: [main.go#L150](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/main.go#L150)
+
+Wrapper: [lora.go](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/lora.go)
+
+## Bluetooth
+
+Usage: [main.go#104](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/main.go#104)
+
+Wrapper: [bluetooth.go](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/bluetooth.go)
+
+## Zigpos
+
+See [github.com/j-forster/MEKOB-P](https://github.com/j-forster/MEKOB-P).
+
+## LEDs
+
+See the actuators at [main.go#L60-L75](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/main.go#L60-L75) and the declaration at [device.go#L35-L44](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/device.go#L35-L44)
