@@ -80,6 +80,10 @@ Usage: [main.go#104](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/
 
 Wrapper: [bluetooth.go](https://github.com/j-forster/Wazihub-Demo-RaspberryPi/blob/master/bluetooth.go)
 
+The bluetooth wrapper is based on the bluetooth low energy tool _gatttool_.
+
+In same cases, you need to terminate the gatttool to run this software properly: `sudo pkill gatttool`.
+
 ## Zigpos
 
 See [github.com/j-forster/MEKOB-P](https://github.com/j-forster/MEKOB-P).
